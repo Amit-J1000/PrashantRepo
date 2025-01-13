@@ -1,0 +1,66 @@
+package com.bikkadit.CriteriaAPI;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Order;
+import javax.persistence.criteria.Root;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
+
+
+public class App 
+{
+  
+    public static void main(String[] args) {
+		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction t = session.beginTransaction();
+		
+//		String hql = "from Employee";
+//		Query query = session.createQuery(hql);
+//		List<Employee> list = (List<Employee>)query.list();
+//		for(Employee e :list) {
+//			System.out.println(e);
+//		}
+		
+//		Criteria cr = session.createCriteria(Employee.class);
+//		cr.add(Restrictions.between("salary", "80000", "90000"));
+//		cr.addOrder(Order.asc("salary"));
+//		List<Employee> list = cr.list();
+//		for(Employee e :list) {
+//			System.out.println(e);
+//		}
+		
+		
+		CriteriaBuilder crb = session.getCriteriaBuilder();
+		CriteriaQuery<Employee> criteriaQuery = crb.createQuery(Employee.class);
+		Root<Employee> root = criteriaQuery.from(Employee.class);
+		
+		
+		criteriaQuery.select(root).where(crb.greaterThan(root.get("salary"), "85000"));
+		
+		
+//		
+		Query<Employee> query = session.createQuery(criteriaQuery);
+		List<Employee> list = query.list();
+		
+		for(Employee e :list) {
+			System.out.println(e);
+		}
+//		
+		
+		t.commit();
+		session.close();;
+		
+		sessionFactory.close();
+	}
+}

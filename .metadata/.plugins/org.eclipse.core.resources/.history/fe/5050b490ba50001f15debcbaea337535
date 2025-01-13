@@ -1,0 +1,103 @@
+package com.bikkadit.HibernatePract;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class App {
+	public static void main(String[] args) {
+		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session session = sessionFactory.openSession();
+	
+		Transaction t = session.beginTransaction();
+
+		
+//		Certificate c1  = new Certificate();
+//		c1.setCourseId(1);
+//		c1.setCourseName("java");
+//		
+//		Certificate c2  = new Certificate();
+//		c2.setCourseId(2);
+//		c2.setCourseName("hibernate");
+//		
+//		List<Certificate> cl = new ArrayList<>();
+//		cl.add(c2);
+//		cl.add(c1);
+//		
+//		Certificate c3  = new Certificate();
+//		c3.setCourseId(3);
+//		c3.setCourseName("Data_science");
+//		
+//		List<Certificate> cll = new ArrayList<>();
+//		cll.add(c3);
+//		
+//		Student s1 = new Student();
+//		s1.setsId(1);
+//		s1.setsName("Amit");
+//		s1.setsAge(27);
+//		s1.setCertificate(cl);
+//		
+//		Student s2 = new Student();
+//		s2.setsId(2);
+//		s2.setsName("Kiran");
+//		s2.setsAge(27);
+//		s2.setCertificate(cll);
+//		
+//		c1.setS(s1);
+//		c2.setS(s1);
+//		c3.setS(s2);
+//	
+//		session.save(s1);
+//		session.save(s2);
+//		session.save(c1);
+//		session.save(c2);
+//		session.save(c3);
+		
+		
+//		Student student = session.load(Student.class, 1);
+//		session.delete(student);
+		
+
+		Certificate certificate = session.get(Certificate.class, 2);
+		session.delete(certificate);
+
+		
+//		EmployeeAdd empadd1 = new EmployeeAdd(10, "mumbai");
+//
+//		Employee emp1 = new Employee();
+//		emp1.setEmp_Id(1);
+//		emp1.setEmp_Name("Shunbham");
+//		emp1.setEmp_Add(empadd1);
+//
+//		EmployeeAdd empadd2 = new EmployeeAdd(11, "delhi");
+//		EmployeeAdd empadd3 = new EmployeeAdd(13, "Kolhapur");
+//		List<EmployeeAdd> eadd = new ArrayList<>();
+//		eadd.add(empadd2);
+//		eadd.add(empadd3);
+//		
+//		Employee emp2 = new Employee();
+//		emp2.setEmp_Id(2);
+//		emp2.setEmp_Name("Kiran");
+//		emp2.setEmp_Add(empadd2);
+//		
+//		empadd1.setEmployee(emp1);
+//		empadd2.setEmployee(emp2);
+//		
+//		session.save(empadd1);
+//		session.save(empadd2);
+//		session.save(emp1);
+//		session.save(emp2);
+//		
+//		EmployeeAdd empadd = session.get(EmployeeAdd.class, 11);
+		
+		
+		t.commit();
+		session.close();;
+		
+		sessionFactory.close();
+	}
+}

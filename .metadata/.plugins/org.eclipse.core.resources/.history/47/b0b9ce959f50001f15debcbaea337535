@@ -1,0 +1,18 @@
+package com.bikkadit.ManyToMany;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+@Entity
+public class Employee {
+
+	@Id
+	private int eId;
+	private String eName;
+	private String eDept;
+	@ManyToMany
+	private Address ad;
+	
+	
+}

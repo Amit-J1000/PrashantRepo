@@ -1,0 +1,84 @@
+package com.bikkadit.HibernatePract;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class App {
+	public static void main(String[] args) {
+		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session session = sessionFactory.openSession();
+	
+		Transaction t = session.beginTransaction();
+
+//		Student s1 = new Student();
+//		s1.setsId(1);
+//		s1.setsName("Amit");
+//		s1.setsAge(27);
+//		StudentAddress ad1 = new StudentAddress(11, "Pune");
+//		s1.setStu_Add(ad1);
+//
+//		Student s2 = new Student();
+//		s2.setsId(2);
+//		s2.setsName("Kiran");
+//		s2.setsAge(27);
+//		StudentAddress ad2 = new StudentAddress(12, "Karad");
+//		s2.setStu_Add(ad2);
+//
+//		session.save(s1);
+//		session.save(s2);
+		
+//		Student stu1 = session.get(Student.class, 2);
+//		System.out.println(stu1.getsName()+":"+stu1.getStu_Add().getAdd_City());
+//		
+//		stu1.setsAge(47);
+//		
+//		System.out.println(stu1);
+//
+//		t.commit();
+//		session.close();
+//		
+//		stu1.setsAge(136);
+//		System.out.println(stu1);
+//		
+//		Session session2 = sessionFactory.openSession();
+//		Transaction t2 = session2.beginTransaction();
+//		stu1.setsAge(75);
+//		
+//		session2.update(stu1);
+//		
+//		System.out.println(stu1);
+//		
+		
+		EmployeeAdd empadd1 = new EmployeeAdd(10, "mumbai");
+//
+//		Employee emp1 = new Employee();
+//		emp1.setEmp_Id(1);
+//		emp1.setEmp_Name("Shunbham");
+//		emp1.setEmp_Add(empadd1);
+//
+		EmployeeAdd empadd2 = new EmployeeAdd(11, "delhi");
+//
+//		Employee emp2 = new Employee();
+//		emp2.setEmp_Id(2);
+//		emp2.setEmp_Name("Kiran");
+//		emp2.setEmp_Add(empadd2);
+//		
+//		empadd1.setEmployee(emp1);
+//		empadd2.setEmployee(emp2);
+//		
+//		session.save(empadd1);
+//		session.save(empadd2);
+//		session.save(emp1);
+//		session.save(emp2);
+		
+		EmployeeAdd empadd = session.get(EmployeeAdd.class, 11);
+		System.out.println(empadd.getEmployee().getEmp_Name()+"+++++++++++++++++++++++++");
+		
+		t.commit();
+		session.close();;
+		
+		sessionFactory.close();
+	}
+}

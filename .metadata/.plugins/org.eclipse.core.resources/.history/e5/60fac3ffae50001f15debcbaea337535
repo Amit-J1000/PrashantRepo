@@ -1,0 +1,34 @@
+package com.bikkadit.HibernatePract;
+
+import java.util.List;
+
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+
+public class Student {
+	@Id
+	private int sId;
+	private String sName;
+	private int sAge;
+	@OneToMany
+	private List<Certificate> certificate;
+	@Transient
+	private StudentAddress stu_Add;
+
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,45 @@
+package com.bikkadit.HibernatePract.OneToOneMapping;
+
+import com.bikkadit.HibernatePract.OneToOneMapping.EmployeeAdd;
+
+public class Employee {
+
+	private int emp_Id;
+	private String emp_Name;
+	private EmployeeAdd emp_Add;
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Employee(int emp_Id, String emp_Name, EmployeeAdd emp_Add) {
+		super();
+		this.emp_Id = emp_Id;
+		this.emp_Name = emp_Name;
+		this.emp_Add = emp_Add;
+	}
+	public int getEmp_Id() {
+		return emp_Id;
+	}
+	public void setEmp_Id(int emp_Id) {
+		this.emp_Id = emp_Id;
+	}
+	public String getEmp_Name() {
+		return emp_Name;
+	}
+	public void setEmp_Name(String emp_Name) {
+		this.emp_Name = emp_Name;
+	}
+	public EmployeeAdd getEmp_Add() {
+		return emp_Add;
+	}
+	public void setEmp_Add(EmployeeAdd emp_Add) {
+		this.emp_Add = emp_Add;
+	}
+	@Override
+	public String toString() {
+		return "Employee [emp_Id=" + emp_Id + ", emp_Name=" + emp_Name + ", emp_Add=" + emp_Add + "]";
+	}
+	
+	
+	
+}

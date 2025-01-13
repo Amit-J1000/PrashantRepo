@@ -1,0 +1,79 @@
+package com.bikkadit.HibernatePract;
+
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+public class Student {
+	@Id
+	private int sId;
+	private String sName;
+	private int sAge;
+	
+	private StudentAddress stu_Add;
+
+	public Student() {
+		super();
+		
+	}
+
+	public Student(int sId, String sName, int sAge, StudentAddress stu_Add) {
+		super();
+		this.sId = sId;
+		this.sName = sName;
+		this.sAge = sAge;
+		this.stu_Add = stu_Add;
+	}
+
+	public int getsId() {
+		return sId;
+	}
+
+	public void setsId(int sId) {
+		this.sId = sId;
+	}
+
+	public String getsName() {
+		return sName;
+	}
+
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
+
+	public int getsAge() {
+		return sAge;
+	}
+
+	public void setsAge(int sAge) {
+		this.sAge = sAge;
+	}
+
+	public StudentAddress getStu_Add() {
+		return stu_Add;
+	}
+
+	public void setStu_Add(StudentAddress stu_Add) {
+		this.stu_Add = stu_Add;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [sId=" + sId + ", sName=" + sName + ", sAge=" + sAge + ", stu_Add=" + stu_Add + "]";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

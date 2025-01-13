@@ -1,0 +1,38 @@
+package com.bikkadit.ManyToMany;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session session = sessionFactory.openSession();
+	
+		Transaction t = session.beginTransaction();
+		
+		Employee emp1 = new Employee();
+		emp1.seteId(1);
+		emp1.seteName("Kiran");
+		emp1.seteDept("IT");
+		
+		Employee emp2 = new Employee();
+		emp2.seteId(2);
+		emp2.seteName("Prashant");
+		emp2.seteDept("Production");
+		
+		Employee emp3 = new Employee();
+		emp3.seteId(2);
+		emp3.seteName("Prashant");
+		emp3.seteDept("Production");
+		
+		
+		t.commit();
+		session.close();;
+		
+		sessionFactory.close();
+    }
+}

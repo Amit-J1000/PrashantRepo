@@ -1,0 +1,60 @@
+package com.bikkadit.ManyToMany;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session session = sessionFactory.openSession();
+	
+		Transaction t = session.beginTransaction();
+		
+		/*
+		 * Employee emp1 = new Employee(); emp1.seteId(1); emp1.seteName("Kiran");
+		 * emp1.seteDept("IT");
+		 * 
+		 * Employee emp2 = new Employee(); emp2.seteId(2); emp2.seteName("Prashant");
+		 * emp2.seteDept("Production");
+		 * 
+		 * Employee emp3 = new Employee(); emp3.seteId(3); emp3.seteName("Amar");
+		 * emp3.seteDept("Medical");
+		 * 
+		 * 
+		 * Address ad1 = new Address(); ad1.setaId(111); ad1.setCity("Pune");
+		 * 
+		 * Address ad2 = new Address(); ad2.setaId(112); ad2.setCity("Mumbai");
+		 * 
+		 * Address ad3 = new Address(); ad3.setaId(113); ad3.setCity("Mumbai");
+		 * 
+		 * List<Employee> lemp = new ArrayList<>(); lemp.add(emp2); lemp.add(emp3);
+		 * 
+		 * List<Employee> lemp1 = new ArrayList<>(); lemp1.add(emp1);
+		 * 
+		 * List<Address> lad = new ArrayList<>(); lad.add(ad2); lad.add(ad3);
+		 * List<Address> lad1 = new ArrayList<>(); lad1.add(ad1);
+		 * 
+		 * emp1.setAd(lad1); emp2.setAd(lad); emp3.setAd(lad);
+		 * 
+		 * ad1.setEmp(lemp1); ad2.setEmp(lemp); ad3.setEmp(lemp);
+		 * 
+		 * session.save(emp1); session.save(emp2); session.save(emp3);
+		 * session.save(ad1); session.save(ad2); session.save(ad3);
+		 */
+		
+		Employee employee = session.get(Employee.class, 2);
+		
+		System.out.println(employee+" : "+employee.getAd().size());
+		t.commit();
+		session.close();;
+		
+		sessionFactory.close();
+    }
+}

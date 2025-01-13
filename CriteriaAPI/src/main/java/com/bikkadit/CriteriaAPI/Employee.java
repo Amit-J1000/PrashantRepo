@@ -1,0 +1,65 @@
+package com.bikkadit.CriteriaAPI;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Employee {
+	@Id
+	private int eId;
+	private String eName;
+	private String country;
+	private String city;
+	private String salary;
+	public int geteId() {
+		return eId;
+	}
+	public void seteId(int eId) {
+		this.eId = eId;
+	}
+	public String geteName() {
+		return eName;
+	}
+	public void seteName(String eName) {
+		this.eName = eName;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getSalary() {
+		return salary;
+	}
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+	public Employee(int eId, String eName, String country, String city, String salary) {
+		super();
+		this.eId = eId;
+		this.eName = eName;
+		this.country = country;
+		this.city = city;
+		this.salary = salary;
+	}
+	
+//	public String display() {
+//		return "Employee [eId=" + eId + ", eName=" + eName + ", country=" + country + ", city=" + city + ", salary="
+//				+ salary + "]";
+//	}
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stu
+	}
+	
+	
+	
+	
+}

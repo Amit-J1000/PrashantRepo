@@ -1,0 +1,38 @@
+package com.bikkadit.HibernatePract;
+
+import javax.persistence.Embeddable;
+
+//@Embeddable
+public class StudentAddress {
+
+	private int add_Id;
+	private String Add_City;
+	
+	public int getAdd_Id() {
+		return add_Id;
+	}
+	public void setAdd_Id(int add_Id) {
+		this.add_Id = add_Id;
+	}
+	public String getAdd_City() {
+		return Add_City;
+	}
+	public void setAdd_City(String add_City) {
+		Add_City = add_City;
+	}
+	public StudentAddress(int add_Id, String add_City) {
+		super();
+		this.add_Id = add_Id;
+		Add_City = add_City;
+	}
+	public StudentAddress() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "AtudentAddress [add_Id=" + add_Id + ", Add_City=" + Add_City + "]";
+	}
+	
+	
+}

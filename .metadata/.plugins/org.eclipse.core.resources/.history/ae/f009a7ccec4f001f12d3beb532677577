@@ -1,0 +1,38 @@
+package com.bikkadit.HibernatePract.OneToOneMapping;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.bikkadit.HibernatePract.Employee;
+import com.bikkadit.HibernatePract.EmployeeAdd;
+
+public class Test {
+
+	public static void main(String[] args) {
+		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction t = session.beginTransaction();
+
+		EmployeeAdd empadd1 = new EmployeeAdd(10, "mumbai");
+
+		Employee emp1 = new Employee();
+		emp1.setEmp_Id(1);
+		emp1.setEmp_Name("Shunbham");
+		emp1.setEmp_Add(empadd1);
+
+		EmployeeAdd empadd2 = new EmployeeAdd(11, "delhi");
+
+		Employee emp2 = new Employee();
+		emp2.setEmp_Id(2);
+		emp2.setEmp_Name("Shunbham");
+		emp2.setEmp_Add(empadd2);
+
+		t.commit();
+		session.close();
+		sessionFactory.close();
+
+	}
+
+}

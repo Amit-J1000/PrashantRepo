@@ -1,0 +1,65 @@
+package com.bikkadit.HibernatePract;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+@Entity
+public class Student {
+	@Id
+	private int sId;
+	private String sName;
+	private int sAge;
+	@OneToMany
+	private List<Certificate> certificate;
+	
+	@Transient
+	private StudentAddress stu_Add;
+	
+	
+	
+	public int getsId() {
+		return sId;
+	}
+	public void setsId(int sId) {
+		this.sId = sId;
+	}
+	public String getsName() {
+		return sName;
+	}
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
+	public int getsAge() {
+		return sAge;
+	}
+	public void setsAge(int sAge) {
+		this.sAge = sAge;
+	}
+	public List<Certificate> getCertificate() {
+		return certificate;
+	}
+	public void setCertificate(List<Certificate> certificate) {
+		this.certificate = certificate;
+	}
+	public StudentAddress getStu_Add() {
+		return stu_Add;
+	}
+	public void setStu_Add(StudentAddress stu_Add) {
+		this.stu_Add = stu_Add;
+	}
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+}

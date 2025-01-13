@@ -1,0 +1,59 @@
+package com.bikkadit.ManyToMany;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+@Entity
+public class Employee {
+
+	@Id
+	private int eId;
+	private String eName;
+	private String eDept;
+	@ManyToMany
+	private Address ad;
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Employee(int eId, String eName, String eDept, Address ad) {
+		super();
+		this.eId = eId;
+		this.eName = eName;
+		this.eDept = eDept;
+		this.ad = ad;
+	}
+	public int geteId() {
+		return eId;
+	}
+	public void seteId(int eId) {
+		this.eId = eId;
+	}
+	public String geteName() {
+		return eName;
+	}
+	public void seteName(String eName) {
+		this.eName = eName;
+	}
+	public String geteDept() {
+		return eDept;
+	}
+	public void seteDept(String eDept) {
+		this.eDept = eDept;
+	}
+	public Address getAd() {
+		return ad;
+	}
+	public void setAd(Address ad) {
+		this.ad = ad;
+	}
+	@Override
+	public String toString() {
+		return "Employee [eId=" + eId + ", eName=" + eName + ", eDept=" + eDept + ", ad=" + ad + "]";
+	}
+	
+	
+	
+	
+}

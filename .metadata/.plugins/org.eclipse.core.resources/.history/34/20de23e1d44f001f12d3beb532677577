@@ -1,0 +1,7 @@
+package com.bikkadit.HibernatePract.OneToOneMapping;
+
+public class EmployeeAdd {
+
+	private int add_Id;
+	private String add_city;
+}

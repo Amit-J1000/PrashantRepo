@@ -1,0 +1,25 @@
+package com.bikkadit.HibernatePract;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Student")
+//@org.hibernate.annotations.Table(appliesTo = "Student", comment = "ENGINE=MyISAM")
+public class Student {
+	@Id
+	private int sId;
+	private String sName;
+	private int sAge;
+	
+	private StudentAddress stu_Add;
+	
+	
+	
+	
+	
+	
+	
+	
+}
